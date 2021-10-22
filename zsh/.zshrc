@@ -105,3 +105,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# exa
+if (( $+commands[exa] )); then
+alias ls="exa --group-directories-first --icons"
+alias la="ls -a"
+alias lt="ls --tree --level=2"
+alias lla="l -a"
+alias llg="l --git"
+alias llt="l --tree --level=2"
+fi

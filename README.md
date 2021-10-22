@@ -38,10 +38,9 @@ by Primer.
 
 ## Homebrew
 
-1. Install Homebrew:
-
 ```zsh
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+$ brew install exa
 ```
 
 ## Zsh + Oh My Zsh
@@ -52,3 +51,8 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 $ ln -s ~/Code/dotfiles/zsh/.zshrc ~/.zshrc
 $ ln -s ~/Code/dotfiles/ohmyzsh ~/.oh-my-zsh
 ```
+
+2. Restart your terminal.
+
+Plugins that require installation, like `zsh-autosuggestions` and `zsh-syntax-highlighting`
+are included as git subtrees.
