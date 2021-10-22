@@ -10,19 +10,37 @@ Minimal dotfiles and more. Nothing here has been tested on anything other than m
 
 This section contains assets useful for multiple apps.
 
+### Clone repo
+
+```zsh
+$ mkdir ~/Code
+$ cd ~/Code
+$ git clone https://github.com/tabrezm/dotfiles.git
+```
+
 ### SFMono Nerd Font Complete
 
-Patched version of Apple's SF Mono font ([source](https://developer.apple.com/fonts/))
+Patched version of the [SF Mono font](https://developer.apple.com/fonts/) by Apple
 with all available glyphs from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
 
-1. Download the fonts from [here](fonts).
+1. Locate the fonts [here](fonts).
 2. Double-click each file and click "Install Font" in the dialog.
 
 ## macOS Terminal
 
-The theme is based on the VS Code theme by Primer ([source](https://github.com/primer/github-vscode-theme)).
+The GitHub Dark Dimmer theme is a port of the corresponding [VS Code theme](https://github.com/primer/github-vscode-theme)
+by Primer.
 
 0. Install the SFMono Nerd Fonts.
-1. Download the theme from [here](themes/GitHub%20Dark%20Dimmed.terminal).
+1. Locate the theme [here](themes/GitHub%20Dark%20Dimmed.terminal).
 2. Double-click the file to import it.
 3. Go to Terminal >> Preferences >> Profiles. Select the theme and click "Default'.
+
+## Homebrew
+
+1. Install Homebrew:
+
+```zsh
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
