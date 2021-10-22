@@ -44,3 +44,11 @@ by Primer.
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+## Zsh + Oh My Zsh
+
+1. Create symlinks:
+
+```zsh
+$ ln -s ~/Code/dotfiles/zsh/.zshrc ~/.zshrc
+$ ln -s ~/Code/dotfiles/ohmyzsh ~/.oh-my-zsh
+```
