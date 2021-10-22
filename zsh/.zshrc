@@ -73,7 +73,6 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 plugins=(
     git
     python
-    vscode
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -106,12 +105,25 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# aliases
+alias fd="find . -type d -name"
+alias ff="find . -type f -name"
+
+alias cp="cp -i"
+alias rm="rm -i"
+alias mv="mv -i"
+
+alias psf="ps -f"
+
+alias h="history"
+alias t="tail -f"
+
 # exa
 if (( $+commands[exa] )); then
-alias ls="exa --group-directories-first --icons"
-alias la="ls -a"
-alias lt="ls --tree --level=2"
-alias lla="l -a"
-alias llg="l --git"
-alias llt="l --tree --level=2"
+    alias ls="exa --group-directories-first --icons"
+    alias la="ls -a"
+    alias lt="ls --tree --level=2"
+    alias lla="l -a"
+    alias llg="l --git"
+    alias llt="l --tree --level=2"
 fi
