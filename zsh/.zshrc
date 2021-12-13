@@ -1,3 +1,8 @@
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -72,7 +77,6 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    python
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -105,6 +109,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Fix for https://github.com/zsh-users/zsh-syntax-highlighting/issues/295
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
+
 # aliases
 alias fd="find . -type d -name"
 alias ff="find . -type f -name"
@@ -127,3 +134,8 @@ if (( $+commands[exa] )); then
     alias llg="l --git"
     alias llt="l --tree --level=2"
 fi
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####

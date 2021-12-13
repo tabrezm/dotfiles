@@ -26,6 +26,16 @@ with all available glyphs from [Nerd Fonts](https://github.com/ryanoasis/nerd-fo
 1. Locate the fonts [here](fonts).
 2. Double-click each file and click "Install Font" in the dialog.
 
+## macOS defaults
+
+Adjust dock icon size and lock it to prevent accidental resizing.
+
+```shell
+defaults write com.apple.dock tilesize -int 48
+defaults write com.apple.dock size-immutable -bool yes
+killall Dock
+```
+
 ## macOS Terminal
 
 The GitHub Dark Dimmer theme is a port of the corresponding [VS Code theme](https://github.com/primer/github-vscode-theme)
