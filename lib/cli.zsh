@@ -68,10 +68,12 @@ function _omz {
 
         _describe 'plugin' valid_plugins ;;
       plugin::info)
-        local -aU plugins=("$ZSH"/plugins/*/{_*,*.plugin.zsh}(.N:h:t) "$ZSH_CUSTOM"/plugins/*/{_*,*.plugin.zsh}(.N:h:t))
+        local -aU plugins
+        plugins=("$ZSH"/plugins/*/{_*,*.plugin.zsh}(.N:h:t) "$ZSH_CUSTOM"/plugins/*/{_*,*.plugin.zsh}(.N:h:t))
         _describe 'plugin' plugins ;;
       theme::(set|use))
-        local -aU themes=("$ZSH"/themes/*.zsh-theme(.N:t:r) "$ZSH_CUSTOM"/**/*.zsh-theme(.N:r:gs:"$ZSH_CUSTOM"/themes/:::gs:"$ZSH_CUSTOM"/:::))
+        local -aU themes
+        themes=("$ZSH"/themes/*.zsh-theme(.N:t:r) "$ZSH_CUSTOM"/**/*.zsh-theme(.N:r:gs:"$ZSH_CUSTOM"/themes/:::gs:"$ZSH_CUSTOM"/:::))
         _describe 'theme' themes ;;
     esac
   elif (( CURRENT > 4 )); then
@@ -274,9 +276,10 @@ multi == 1 && length(\$0) > 0 {
 { print \$0 }
 "
 
-  awk "$awk_script" ~/.zshrc > ~/.zshrc.new \
-  && command mv -f ~/.zshrc ~/.zshrc.bck \
-  && command mv -f ~/.zshrc.new ~/.zshrc
+  local zdot="${ZDOTDIR:-$HOME}"
+  awk "$awk_script" "$zdot/.zshrc" > "$zdot/.zshrc.new" \
+  && command mv -f "$zdot/.zshrc" "$zdot/.zshrc.bck" \
+  && command mv -f "$zdot/.zshrc.new" "$zdot/.zshrc"
 
   # Exit if the new .zshrc file wasn't created correctly
   [[ $? -eq 0 ]] || {
@@ -286,10 +289,10 @@ multi == 1 && length(\$0) > 0 {
   }
 
   # Exit if the new .zshrc file has syntax errors
-  if ! zsh -n ~/.zshrc; then
-    _omz::log error "broken syntax in ~/.zshrc. Rolling back changes..."
-    command mv -f ~/.zshrc ~/.zshrc.new
-    command mv -f ~/.zshrc.bck ~/.zshrc
+  if ! zsh -n "$zdot/.zshrc"; then
+    _omz::log error "broken syntax in '"${zdot/#$HOME/\~}/.zshrc"'. Rolling back changes..."
+    command mv -f "$zdot/.zshrc" "$zdot/.zshrc.new"
+    command mv -f "$zdot/.zshrc.bck" "$zdot/.zshrc"
     return 1
   fi
 
@@ -349,9 +352,10 @@ multi == 1 && /^[^#]*\)/ {
 { print \$0 }
 "
 
-  awk "$awk_script" ~/.zshrc > ~/.zshrc.new \
-  && command mv -f ~/.zshrc ~/.zshrc.bck \
-  && command mv -f ~/.zshrc.new ~/.zshrc
+  local zdot="${ZDOTDIR:-$HOME}"
+  awk "$awk_script" "$zdot/.zshrc" > "$zdot/.zshrc.new" \
+  && command mv -f "$zdot/.zshrc" "$zdot/.zshrc.bck" \
+  && command mv -f "$zdot/.zshrc.new" "$zdot/.zshrc"
 
   # Exit if the new .zshrc file wasn't created correctly
   [[ $? -eq 0 ]] || {
@@ -361,10 +365,10 @@ multi == 1 && /^[^#]*\)/ {
   }
 
   # Exit if the new .zshrc file has syntax errors
-  if ! zsh -n ~/.zshrc; then
-    _omz::log error "broken syntax in ~/.zshrc. Rolling back changes..."
-    command mv -f ~/.zshrc ~/.zshrc.new
-    command mv -f ~/.zshrc.bck ~/.zshrc
+  if ! zsh -n "$zdot/.zshrc"; then
+    _omz::log error "broken syntax in '"${zdot/#$HOME/\~}/.zshrc"'. Rolling back changes..."
+    command mv -f "$zdot/.zshrc" "$zdot/.zshrc.new"
+    command mv -f "$zdot/.zshrc.bck" "$zdot/.zshrc"
     return 1
   fi
 
@@ -696,17 +700,18 @@ END {
 }
 '
 
-  awk "$awk_script" ~/.zshrc > ~/.zshrc.new \
+  local zdot="${ZDOTDIR:-$HOME}"
+  awk "$awk_script" "$zdot/.zshrc" > "$zdot/.zshrc.new" \
   || {
     # Prepend ZSH_THEME= line to .zshrc if it doesn't exist
     cat <<EOF
 ZSH_THEME="$1" # set by \`omz\`
 
 EOF
-    cat ~/.zshrc
-  } > ~/.zshrc.new \
-  && command mv -f ~/.zshrc ~/.zshrc.bck \
-  && command mv -f ~/.zshrc.new ~/.zshrc
+    cat "$zdot/.zshrc"
+  } > "$zdot/.zshrc.new" \
+  && command mv -f "$zdot/.zshrc" "$zdot/.zshrc.bck" \
+  && command mv -f "$zdot/.zshrc.new" "$zdot/.zshrc"
 
   # Exit if the new .zshrc file wasn't created correctly
   [[ $? -eq 0 ]] || {
@@ -716,10 +721,10 @@ EOF
   }
 
   # Exit if the new .zshrc file has syntax errors
-  if ! zsh -n ~/.zshrc; then
-    _omz::log error "broken syntax in ~/.zshrc. Rolling back changes..."
-    command mv -f ~/.zshrc ~/.zshrc.new
-    command mv -f ~/.zshrc.bck ~/.zshrc
+  if ! zsh -n "$zdot/.zshrc"; then
+    _omz::log error "broken syntax in '"${zdot/#$HOME/\~}/.zshrc"'. Rolling back changes..."
+    command mv -f "$zdot/.zshrc" "$zdot/.zshrc.new"
+    command mv -f "$zdot/.zshrc.bck" "$zdot/.zshrc"
     return 1
   fi
 
