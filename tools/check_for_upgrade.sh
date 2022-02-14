@@ -89,6 +89,31 @@ function update_ohmyzsh() {
   fi
 }
 
+function has_typed_input() {
+  # Created by Philippe Troin <phil@fifi.org>
+  # https://zsh.org/mla/users/2022/msg00062.html
+  emulate -L zsh
+  zmodload zsh/zselect
+
+  # Back up stty settings prior to disabling canonical mode
+  # Consider that no input can be typed if stty fails
+  # (this might happen if stdin is not a terminal)
+  local termios
+  termios=$(stty --save 2>/dev/null) || return 1
+  {
+    # Disable canonical mode so that typed input counts
+    # regardless of whether Enter was pressed
+    stty -icanon
+
+    # Poll stdin (fd 0) for data ready to be read
+    zselect -t 0 -r 0
+    return $?
+  } always {
+    # Restore stty settings
+    stty $termios
+  }
+}
+
 () {
   emulate -L zsh
 
@@ -159,7 +184,7 @@ function update_ohmyzsh() {
   fi
 
   # If user has typed input, show reminder and exit
-  if read -t -k 1; then
+  if has_typed_input; then
     echo
     echo "[oh-my-zsh] It's time to update! You can do that by running \`omz update\`"
     return 0
