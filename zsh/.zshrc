@@ -122,9 +122,13 @@ alias psf="ps -f"
 alias h="history"
 alias t="tail -f"
 
-# exa
-if (( $+commands[exa] )); then
-    alias ls="exa --group-directories-first --icons"
+alias rsync="rsync -vP"
+
+alias igrep="grep -i"
+
+# eza
+if (( $+commands[eza] )); then
+    alias ls="eza --group-directories-first --icons"
     alias la="ls -a"
     alias lt="ls --tree --level=2"
     alias lla="l -a"

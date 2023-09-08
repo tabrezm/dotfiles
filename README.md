@@ -50,7 +50,7 @@ by Primer.
 
 ```zsh
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install exa
+$ brew install eza
 ```
 
 ## Zsh + Oh My Zsh
