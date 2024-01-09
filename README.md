@@ -32,7 +32,10 @@ Adjust dock icon size and lock it to prevent accidental resizing.
 
 ```shell
 defaults write com.apple.dock tilesize -int 48
-defaults write com.apple.dock size-immutable -bool yes
+defaults write com.apple.dock size-immutable -bool true
+defaults write com.apple.dock orientation -string left
+defaults write com.apple.dock minimize-to-application -bool true
+defaults write com.apple.dock show-process-indicators -bool false
 killall Dock
 ```
 
