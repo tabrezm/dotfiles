@@ -12,7 +12,7 @@ This section contains assets useful for multiple apps.
 
 ### Clone repo
 
-```zsh
+```
 $ mkdir ~/Code
 $ cd ~/Code
 $ git clone https://github.com/tabrezm/dotfiles.git
@@ -20,15 +20,13 @@ $ git clone https://github.com/tabrezm/dotfiles.git
 
 ### SFMono Nerd Font Complete
 
-Patched version of the [SF Mono font](https://developer.apple.com/fonts/) by Apple
-with all available glyphs from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
+Patched version of the [SF Mono font](https://developer.apple.com/fonts/) by
+Apple with all available glyphs from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
 
 1. Locate the fonts [here](fonts).
 2. Double-click each file and click "Install Font" in the dialog.
 
-## macOS defaults
-
-Adjust dock icon size and lock it to prevent accidental resizing.
+## macOS dock settings
 
 ```shell
 defaults write com.apple.dock tilesize -int 48
@@ -41,8 +39,7 @@ killall Dock
 
 ## macOS Terminal
 
-The GitHub Dark Dimmed theme is a port of the corresponding [VS Code theme](https://github.com/primer/github-vscode-theme)
-by Primer.
+The GitHub Dark Dimmed theme is a port of the corresponding [VS Code theme](https://github.com/primer/github-vscode-theme).
 
 0. Install the SFMono Nerd Fonts.
 1. Locate the theme [here](themes/GitHub%20Dark%20Dimmed.terminal).
@@ -51,21 +48,28 @@ by Primer.
 
 ## Homebrew
 
-```zsh
+```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install eza
+$ brew install eza pygments
 ```
 
 ## Zsh + Oh My Zsh
 
 1. Create symlinks:
 
-```zsh
+```
+$ ln -s ~/Code/dotfiles/zsh/.zprofile ~/.zprofile
 $ ln -s ~/Code/dotfiles/zsh/.zshrc ~/.zshrc
 $ ln -s ~/Code/dotfiles/ohmyzsh ~/.oh-my-zsh
 ```
 
 2. Restart your terminal.
 
-Plugins that require installation, like `zsh-autosuggestions` and `zsh-syntax-highlighting`
-are included as git subtrees.
+Plugins that require installation, like `zsh-autosuggestions` and `zsh-syntax-highlighting`,
+are included as git subtrees. Run the following commands to update them from upstream:
+
+```
+$ git subtree pull --prefix ohmyzsh/custom/plugins/zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions master --squash
+$ git subtree pull --prefix ohmyzsh/custom/plugins/zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting master --squash
+$ git push
+```

@@ -5,13 +5,23 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 
-zstyle ':omz:update' mode disabled  # disable automatic updates
+# disable automatic updates
+zstyle ':omz:update' mode disabled
 
 plugins=(
+    aws
+    colored-man-pages
+    colorize
+    copybuffer
+    copyfile
+    copypath
+    dirhistory
     git
+    history
+    sudo
     zsh-autosuggestions
-    zsh-syntax-highlighting
     history-substring-search
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -26,20 +36,12 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# set colors to match terminal theme
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=94"
+ZSH_COLORIZE_STYLE="github-dark"
 
-# Fix for https://github.com/zsh-users/zsh-syntax-highlighting/issues/295
-zstyle ':bracketed-paste-magic' active-widgets '.self-*'
-
-# set colors for history-substring-search
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=94'
+# use zsh_autosuggestions only for history
+ZSH_AUTOSUGGEST_STRATEGY=(history)
 
 # aliases
 alias fd="find . -type d -name"
@@ -50,9 +52,6 @@ alias rm="rm -i"
 alias mv="mv -i"
 
 alias psf="ps -f"
-
-alias h="history"
-alias t="tail -f"
 
 alias rsync="rsync -vP"
 
@@ -67,9 +66,6 @@ if (( $+commands[eza] )); then
     alias llg="l --git"
     alias llt="l --tree --level=2"
 fi
-
-# python
-export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
 
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
