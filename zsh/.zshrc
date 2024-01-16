@@ -136,5 +136,8 @@ if (( $+commands[eza] )); then
     alias llt="l --tree --level=2"
 fi
 
+# python
+export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
+
 # CodeWhisperer post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"

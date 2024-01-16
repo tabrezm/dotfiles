@@ -2,7 +2,7 @@
 
 Minimal dotfiles and more. Nothing here has been tested on anything other than my own environment.
 
-- macOS Big Sur 11.6
+- macOS Sonoma 14.2.1
 - Zsh + Oh My Zsh
 - Visual Studio Code
 
@@ -41,7 +41,7 @@ killall Dock
 
 ## macOS Terminal
 
-The GitHub Dark Dimmer theme is a port of the corresponding [VS Code theme](https://github.com/primer/github-vscode-theme)
+The GitHub Dark Dimmed theme is a port of the corresponding [VS Code theme](https://github.com/primer/github-vscode-theme)
 by Primer.
 
 0. Install the SFMono Nerd Fonts.
