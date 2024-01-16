@@ -38,6 +38,9 @@ source $ZSH/oh-my-zsh.sh
 # Fix for https://github.com/zsh-users/zsh-syntax-highlighting/issues/295
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 
+# set colors for history-substring-search
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=94'
+
 # aliases
 alias fd="find . -type d -name"
 alias ff="find . -type f -name"
