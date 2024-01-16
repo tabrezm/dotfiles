@@ -76,6 +76,7 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
+    history-substring-search
 )
 
 source $ZSH/oh-my-zsh.sh
