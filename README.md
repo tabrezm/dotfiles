@@ -65,11 +65,27 @@ $ ln -s ~/Code/dotfiles/ohmyzsh ~/.oh-my-zsh
 
 2. Restart your terminal.
 
-Plugins that require installation, like `zsh-autosuggestions` and `zsh-syntax-highlighting`,
+Oh My Zsh and plugins that require installation, like `zsh-autosuggestions` and `zsh-syntax-highlighting`,
 are included as git subtrees. Run the following commands to update them from upstream:
 
 ```
+$ git subtree pull --prefix ohmyzsh https://github.com/ohmyzsh/ohmyzsh master --squash
 $ git subtree pull --prefix ohmyzsh/custom/plugins/zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions master --squash
 $ git subtree pull --prefix ohmyzsh/custom/plugins/zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting master --squash
 $ git push
+```
+
+## LaTeX
+
+1. Install MacTex
+
+```
+brew cask install mactex-no-gui
+```
+
+2. Update packages
+
+```
+sudo tlmgr update --self
+sudo tlmgr update --all
 ```
