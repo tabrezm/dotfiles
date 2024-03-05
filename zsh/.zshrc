@@ -13,8 +13,6 @@ plugins=(
     colored-man-pages
     colorize
     copybuffer
-    copyfile
-    copypath
     docker
     fzf
     git
@@ -43,16 +41,13 @@ ZSH_COLORIZE_STYLE="github-dark"
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 
 # aliases
-alias fd="find . -type d -name"
-alias ff="find . -type f -name"
-
 alias cp="cp -i"
 alias rm="rm -i"
 alias mv="mv -i"
 
 alias psf="ps -f"
 
-alias rsync="rsync -vP"
+alias rsync="rsync -avP"
 
 alias igrep="grep -i"
 
@@ -66,17 +61,31 @@ if (( $+commands[eza] )); then
     alias llt="l --tree --level=2"
 fi
 
-# fzf
-export FZF_DEFAULT_COMMAND="fd --type file --color=always"
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --ansi"
+# # fzf
+export FZF_COMPLETION_TRIGGER='~~'
+export FZF_DEFAULT_COMMAND='fd --type file --color=always --hidden --follow --exclude .git --exclude .venv'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="
+    --multi --height 40% --layout=reverse --ansi \
+    --bind 'ctrl-/:toggle-preview'"
+export FZF_CTRL_T_OPTS="
+    --preview 'bat --color=always {}' --preview-window :hidden \
+    --bind 'ctrl-v:execute(code {+})'"
+export FZF_CTRL_R_OPTS="
+    --preview 'echo {}' --preview-window down:hidden:wrap \
+    --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'"
 
 _fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
+  fd . "$1"
 }
 
 _fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
+  fd --type d . "$1"
 }
+
+# bat
+export BAT_STYLE="auto"
+export BAT_THEME="GitHub"
 
 # VS code shell integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

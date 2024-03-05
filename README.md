@@ -2,7 +2,7 @@
 
 Minimal dotfiles and more. Nothing here has been tested on anything other than my own environment.
 
-- macOS Sonoma 14.2.1
+- macOS Sonoma 14.3.1
 - Zsh + Oh My Zsh
 - Visual Studio Code
 
@@ -45,12 +45,17 @@ The GitHub Dark Dimmed theme is a port of the corresponding [VS Code theme](http
 1. Locate the theme [here](themes/GitHub%20Dark%20Dimmed.terminal).
 2. Double-click the file to import it.
 3. Go to Terminal >> Preferences >> Profiles. Select the theme and click "Default'.
+4. Enable Control+/ in macOS Terminal app (logout and login required):
+
+```
+mkdir -p ~/Library/KeyBindings && echo '{\n    "^/" = "noop:";\n}' > ~/Library/KeyBindings/DefaultKeyBinding.dict
+```
 
 ## Homebrew
 
 ```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install eza fd fzf pygments
+$ brew install bat eza fd fzf pygments
 ```
 
 ## Zsh + Oh My Zsh
@@ -61,9 +66,12 @@ $ brew install eza fd fzf pygments
 $ ln -s ~/Code/dotfiles/zsh/.zprofile ~/.zprofile
 $ ln -s ~/Code/dotfiles/zsh/.zshrc ~/.zshrc
 $ ln -s ~/Code/dotfiles/ohmyzsh ~/.oh-my-zsh
+$ ln -s ~/Code/dotfiles/fd/.fdignore ~/.fdignore
 ```
 
 2. Restart your terminal.
+
+### Maintenance
 
 Oh My Zsh and plugins that require installation, like `zsh-autosuggestions` and `zsh-syntax-highlighting`,
 are included as git subtrees. Run the following commands to update them from upstream:
