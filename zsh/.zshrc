@@ -15,13 +15,13 @@ plugins=(
     copybuffer
     copyfile
     copypath
-    dirhistory
+    docker
+    fzf
     git
-    history
     sudo
     zsh-autosuggestions
-    history-substring-search
     zsh-syntax-highlighting
+    z
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -37,7 +37,6 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # set colors to match terminal theme
-HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=94"
 ZSH_COLORIZE_STYLE="github-dark"
 
 # use zsh_autosuggestions only for history
@@ -66,6 +65,18 @@ if (( $+commands[eza] )); then
     alias llg="l --git"
     alias llt="l --tree --level=2"
 fi
+
+# fzf
+export FZF_DEFAULT_COMMAND="fd --type file --color=always"
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --ansi"
+
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
 
 # VS code shell integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

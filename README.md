@@ -50,7 +50,7 @@ The GitHub Dark Dimmed theme is a port of the corresponding [VS Code theme](http
 
 ```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install eza pygments
+$ brew install eza fd fzf pygments
 ```
 
 ## Zsh + Oh My Zsh
@@ -80,7 +80,7 @@ $ git push
 1. Install MacTex
 
 ```
-brew cask install mactex-no-gui
+brew install mactex-no-gui --cask
 ```
 
 2. Update packages
