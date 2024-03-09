@@ -51,6 +51,8 @@ The GitHub Dark Dimmed theme is a port of the corresponding [VS Code theme](http
 mkdir -p ~/Library/KeyBindings && echo '{\n    "^/" = "noop:";\n}' > ~/Library/KeyBindings/DefaultKeyBinding.dict
 ```
 
+A Dracula theme that follows the [official spec](https://spec.draculatheme.com/) is also available [here](themes/Dracula.terminal). The "official" one [does not](https://github.com/dracula/terminal-app/issues/6). If you decide to use it, also change `ZSH_COLORIZE_STYLE` to `"dracula"` and `BAT_THEME` to `"Dracula"` in `~/.zshrc`.
+
 ## Homebrew
 
 ```
