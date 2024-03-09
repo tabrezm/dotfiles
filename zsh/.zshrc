@@ -3,7 +3,7 @@
 
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 
 # disable automatic updates
 zstyle ':omz:update' mode disabled
@@ -43,7 +43,7 @@ alias igrep="grep -i"
 
 alias clr="clr"
 
-alias q!="~ && clr"
+alias q!="~ && clear"
 
 # eza
 if (( $+commands[eza] )); then
