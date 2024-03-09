@@ -24,16 +24,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # set colors to match terminal theme
 ZSH_COLORIZE_STYLE="github-dark"
 
@@ -42,14 +32,18 @@ ZSH_AUTOSUGGEST_STRATEGY=(history)
 
 # aliases
 alias cp="cp -i"
-alias rm="rm -i"
 alias mv="mv -i"
+alias rm="rm -i"
 
-alias psf="ps -f"
+alias curl="curl -OJ"
 
 alias rsync="rsync -avP"
 
 alias igrep="grep -i"
+
+alias clr="clr"
+
+alias q!="~ && clr"
 
 # eza
 if (( $+commands[eza] )); then
@@ -61,7 +55,7 @@ if (( $+commands[eza] )); then
     alias llt="l --tree --level=2"
 fi
 
-# # fzf
+# fzf
 export FZF_COMPLETION_TRIGGER='~~'
 export FZF_DEFAULT_COMMAND='fd --type file --color=always --hidden --follow --exclude .git --exclude .venv'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -76,16 +70,19 @@ export FZF_CTRL_R_OPTS="
     --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'"
 
 _fzf_compgen_path() {
-  fd . "$1"
+    fd . "$1"
 }
 
 _fzf_compgen_dir() {
-  fd --type d . "$1"
+    fd --type d . "$1"
 }
 
 # bat
-export BAT_STYLE="auto"
-export BAT_THEME="GitHub"
+if (( $+commands[bat] )); then
+    alias cat="bat"
+    export BAT_STYLE="auto"
+    export BAT_THEME="GitHub"
+fi
 
 # VS code shell integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
