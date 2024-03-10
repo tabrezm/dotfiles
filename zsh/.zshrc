@@ -43,7 +43,7 @@ alias igrep="grep -i"
 
 alias clr="clr"
 
-alias q!="~ && clear"
+alias q="~ && clear"
 
 # eza
 if (( $+commands[eza] )); then
