@@ -76,7 +76,7 @@ $ ln -s ~/Code/dotfiles/fd/.fdignore ~/.fdignore
 ### Maintenance
 
 Oh My Zsh plugins and themes like `zsh-autosuggestions` and `zsh-syntax-highlighting`,
-are included as git subtrees. Run `make sync` to update them from upstream:
+are included as git subtrees. Run `make sync` to update them from upstream.
 
 ## LaTeX
 
