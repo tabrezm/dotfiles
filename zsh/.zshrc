@@ -14,8 +14,8 @@ plugins=(
     colorize
     copybuffer
     docker
+    forgit
     fzf
-    git
     sudo
     zsh-autosuggestions
     zsh-syntax-highlighting
