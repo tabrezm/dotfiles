@@ -265,7 +265,7 @@ _forgit_diff() {
     opts="
         $FORGIT_FZF_DEFAULT_OPTS
         +m -0 --bind=\"enter:execute($FORGIT diff_enter {} $escaped_commits | $_forgit_enter_pager)\"
-        --preview=\"$FORGIT diff_view {} $_forgit_preview_context $escaped_commits\"
+        --preview=\"$FORGIT diff_view {} '$_forgit_preview_context' $escaped_commits\"
         --bind=\"alt-e:execute-silent($FORGIT edit_diffed_file {})+refresh-preview\"
         $FORGIT_DIFF_FZF_OPTS
         --prompt=\"${commits[*]} > \"
@@ -357,7 +357,7 @@ _forgit_reset_head() {
     opts="
         $FORGIT_FZF_DEFAULT_OPTS
         -m -0
-        --preview=\"$FORGIT reset_head_preview \"$rootdir\"/{}\"
+        --preview=\"$FORGIT reset_head_preview '$rootdir'/{}\"
         $FORGIT_RESET_HEAD_FZF_OPTS
     "
     files=()
@@ -407,7 +407,7 @@ _forgit_stash_show() {
 
 _forgit_stash_push_preview() {
     if _forgit_is_file_tracked "$1"; then
-        git diff --color=always "$1" | $_forgit_diff_pager
+        git diff --color=always -- "$1" | $_forgit_diff_pager
     else
         git diff --color=always /dev/null "$1" | $_forgit_diff_pager
     fi
@@ -529,7 +529,7 @@ _forgit_cherry_pick_from_branch() {
     opts="
         $FORGIT_FZF_DEFAULT_OPTS
         +s +m --tiebreak=index --header-lines=1
-        --preview=\"$FORGIT cherry_pick_from_branch_preview \"$base\" {1}\"
+        --preview=\"$FORGIT cherry_pick_from_branch_preview '$base' {1}\"
         $FORGIT_CHERRY_PICK_FROM_BRANCH_FZF_OPTS
         "
     # loop until either the branch selector is closed or a commit to be cherry
@@ -742,7 +742,9 @@ _forgit_checkout_commit() {
 }
 
 _forgit_branch_preview() {
-    git log "$1" "${_forgit_log_preview_options[@]}"
+    # the trailing '--' ensures that this works for branches that have a name
+    # that is identical to a file
+    git log "$1" "${_forgit_log_preview_options[@]}" --
 }
 
 _forgit_git_branch_delete() {
