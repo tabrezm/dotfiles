@@ -57,7 +57,7 @@ A Dracula theme that follows the [official spec](https://spec.draculatheme.com/)
 
 ```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install bat eza fd fzf pygments
+$ brew install bat eza fd fzf micro pygments superfile tlrc
 ```
 
 ## Zsh + Oh My Zsh
