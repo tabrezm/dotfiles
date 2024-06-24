@@ -8,7 +8,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='4.15.3'
+export SPACESHIP_VERSION='4.16.0'
 
 # Set SPACESHIP_ROOT if it isn't defined yet or if the directory does
 # not exist anymore (e.g. after an update to a newer version)
@@ -44,7 +44,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     user           # Username section
     dir            # Current directory section
     host           # Hostname section
-    git            # Git section (git_branch + git_status)
+    git            # Git section (git_branch + git_status + [git_commit](default off))
     hg             # Mercurial section (hg_branch  + hg_status)
     package        # Package version
     node           # Node.js section
@@ -52,6 +52,7 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     deno           # Deno section
     ruby           # Ruby section
     python         # Python section
+    red            # Red section
     elm            # Elm section
     elixir         # Elixir section
     xcode          # Xcode section

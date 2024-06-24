@@ -128,6 +128,12 @@
       "internal": true
     },
     {
+      "name": "git_commit",
+      "url": "https://spaceship-prompt.sh/sections/git/#git-commit-git_commit",
+      "description": "The current Git commit hash.",
+      "internal": true
+    },
+    {
       "name": "golang",
       "url": "https://spaceship-prompt.sh/sections/golang",
       "description": "The version of the Go.",
@@ -263,6 +269,12 @@
       "name": "python",
       "url": "https://spaceship-prompt.sh/sections/python",
       "description": "The version of the Python binary.",
+      "internal": true
+    },
+    {
+      "name": "red",
+      "url": "https://spaceship-prompt.sh/sections/red",
+      "description": "The version of the Red binary.",
       "internal": true
     },
     {
