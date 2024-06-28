@@ -40,9 +40,9 @@ alias rsync="rsync -avP"
 
 alias igrep="grep -i"
 
-alias clr="clr"
+alias clr="clear"
 
-alias q!="~ && clear"
+alias q!="~ && clr"
 
 # eza
 if (( $+commands[eza] )); then
