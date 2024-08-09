@@ -34,7 +34,7 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 
-alias curl="curl -OJ"
+alias curlo="curl -OJ"
 
 alias rsync="rsync -avP"
 
