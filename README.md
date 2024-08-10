@@ -73,6 +73,12 @@ $ ln -s ~/Code/dotfiles/fd/.fdignore ~/.fdignore
 
 2. Restart your terminal.
 
+## SDKMAN
+
+```
+$ curl -s "https://get.sdkman.io" | bash
+```
+
 ### Maintenance
 
 Oh My Zsh plugins and themes like `zsh-autosuggestions` and `zsh-syntax-highlighting`,
