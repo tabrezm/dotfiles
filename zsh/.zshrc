@@ -2,11 +2,23 @@
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 export ZSH=$HOME/.oh-my-zsh
 
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 ZSH_THEME="spaceship"
+fi
 
 # disable automatic updates
 zstyle ':omz:update' mode disabled
 
+if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
+plugins=(
+    aws
+    colored-man-pages
+    colorize
+    docker
+    forgit
+    sudo
+)
+else
 plugins=(
     aws
     colored-man-pages
@@ -20,6 +32,7 @@ plugins=(
     zsh-syntax-highlighting
     z
 )
+fi
 
 source $ZSH/oh-my-zsh.sh
 
