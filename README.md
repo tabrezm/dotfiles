@@ -56,8 +56,8 @@ A Dracula theme that follows the [official spec](https://spec.draculatheme.com/)
 ## Homebrew
 
 ```
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ brew install bat eza fd fzf micro pygments superfile tlrc
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install bat eza fd fzf micro superfile tlrc
 ```
 
 ## Zsh + Oh My Zsh
@@ -76,7 +76,7 @@ $ ln -s ~/Code/dotfiles/fd/.fdignore ~/.fdignore
 ## SDKMAN
 
 ```
-$ curl -s "https://get.sdkman.io" | bash
+curl -s "https://get.sdkman.io" | bash
 ```
 
 ### Maintenance

@@ -13,7 +13,6 @@ if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
 plugins=(
     aws
     colored-man-pages
-    colorize
     docker
     forgit
     sudo
@@ -22,7 +21,6 @@ else
 plugins=(
     aws
     colored-man-pages
-    colorize
     copybuffer
     docker
     forgit
@@ -30,7 +28,6 @@ plugins=(
     sudo
     zsh-autosuggestions
     zsh-syntax-highlighting
-    z
 )
 fi
 
@@ -96,12 +93,25 @@ if (( $+commands[bat] )); then
     export BAT_THEME="GitHub"
 fi
 
+# yazi
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # VS code shell integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 # Default editor
 export EDITOR=micro
 export VISUAL=$EDITOR
+
+# zoxide
+eval "$(zoxide init zsh)"
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
