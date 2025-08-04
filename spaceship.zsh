@@ -8,7 +8,7 @@
 
 # Current version of Spaceship
 # Useful for issue reporting
-export SPACESHIP_VERSION='4.18.0'
+export SPACESHIP_VERSION='4.19.0'
 
 # Set SPACESHIP_ROOT if it isn't defined yet or if the directory does
 # not exist anymore (e.g. after an update to a newer version)
@@ -56,7 +56,9 @@ if [ -z "$SPACESHIP_PROMPT_ORDER" ]; then
     elm            # Elm section
     elixir         # Elixir section
     xcode          # Xcode section
+    xcenv          # xcenv section
     swift          # Swift section
+    swiftenv       # swiftenv section
     golang         # Go section
     perl           # Perl section
     php            # PHP section
