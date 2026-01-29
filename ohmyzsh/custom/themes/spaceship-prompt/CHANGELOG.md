@@ -1,3 +1,36 @@
+# [4.21.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.20.0...v4.21.0) (2025-12-24)
+
+
+### Features
+
+* **haxe:** add support for haxe ([#1513](https://github.com/spaceship-prompt/spaceship-prompt/issues/1513)) ([ff0d638](https://github.com/spaceship-prompt/spaceship-prompt/commit/ff0d638cf2ebeb07490b3205f853ddb8e6c13fe6))
+
+# [4.20.0](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.3...v4.20.0) (2025-12-20)
+
+
+### Bug Fixes
+
+* make rlang.test.zsh executable ([bdb073c](https://github.com/spaceship-prompt/spaceship-prompt/commit/bdb073c50964a58b6448212beddf1c1f5c2c5d67))
+
+
+### Features
+
+* **rlang:** implement new section to support RLang ([3361bb7](https://github.com/spaceship-prompt/spaceship-prompt/commit/3361bb748a26305b25159cb63f2395b7e785e35a))
+
+## [4.19.3](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.2...v4.19.3) (2025-12-19)
+
+
+### Bug Fixes
+
+* more robust ruby/elixir version detection when asdf is installed but not managing ruby/elixir ([#1509](https://github.com/spaceship-prompt/spaceship-prompt/issues/1509)) ([3f7ec0c](https://github.com/spaceship-prompt/spaceship-prompt/commit/3f7ec0cabbef7bb32358fd3754701432ee7bd520))
+
+## [4.19.2](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.1...v4.19.2) (2025-12-19)
+
+
+### Bug Fixes
+
+* **sections/jobs:** add support for ZSH <5.9 ([#1505](https://github.com/spaceship-prompt/spaceship-prompt/issues/1505)) ([539af72](https://github.com/spaceship-prompt/spaceship-prompt/commit/539af7254b63465d67d1b31bdaff39622dabd0d8))
+
 ## [4.19.1](https://github.com/spaceship-prompt/spaceship-prompt/compare/v4.19.0...v4.19.1) (2025-10-29)
 
 
